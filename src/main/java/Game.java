@@ -17,8 +17,18 @@ public class Game {
         Rule rule = new Rule();
         CardDeck cardDeck = new CardDeck();
         
-        
-        Card card = cardDeck.draw();
-        System.out.println(cardDeck.toString());
+        String gamerInput;
+        while(true) {
+        	System.out.println("게이머님 카드를 뽑겠습니까? 종료를 원하시면 0을 입력하세요.");
+        	gamerInput = sc.nextLine();
+        	
+        	if("0".equals(gamerInput)) {
+        		break;
+        	}
+        	
+        	Card card = cardDeck.draw();
+        	gamer.receiveCard(card);
+        	gamer.showCards();
+        }
     }
 }
